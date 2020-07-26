@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MultilingualDemo.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:helpers="clr-namespace:MultilingualDemo.Helpers"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackLayout Margin="10" Spacing="10">
+
+        <Label
+            HorizontalOptions="Center"
+            Text="{helpers:Translate UserDetails}"
+            TextDecorations="Underline"
+            VerticalOptions="Center" />
+
+        <Entry Placeholder="{helpers:Translate Name}" />
+
+        <Entry Placeholder="{helpers:Translate Email}" />
+
+        <Entry Placeholder="{helpers:Translate Phone}" />
+
+
+        <Picker
+            x:Name="picker"
+            ItemDisplayBinding="{Binding Name}"
+            ItemsSource="{Binding Languages}"
+            SelectedItem="{Binding SelectedLanguage, Mode=TwoWay}" />
+
+
+        <Button
+            Margin="0,30,0,0"
+            Command="{Binding ChangeLangugeCommand, Mode=OneTime}"
+            Text="{helpers:Translate ChangeLanguage}"
+            VerticalOptions="Center" />
+
+    </StackLayout>
+
+</ContentPage>
